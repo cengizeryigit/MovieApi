@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MovieApi.Application.Features.CQRSDesignPaterns.Commands.CategoryCommands;
+using MovieApi.Persistence.Context;
+
+namespace MovieApi.Application.Features.CQRSDesignPaterns.Handlers.CategoryHandlers
+{
+    public class UpdateCategoryCommandHandler
+    {
+        private readonly MovieContext _context;
+        public UpdateCategoryCommandHandler(MovieContext context)
+        {
+            _context = context;
+        }
+
+        public async void Handle(UpdateCategoryCommand command)
+        {
+            var value = await _context.Categories.FindAsync(command.CategoryId);
+            value.CategoryName = command.CategoryName;
+            _context.Categories.Update(value);
+            await _context.SaveChangesAsync();
+        }
+    }
+}

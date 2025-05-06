@@ -10,7 +10,7 @@ using MovieApi.Persistence.Context;
 
 namespace MovieApi.Persistence.Migrations
 {
-    [DbContext(typeof(MovieContext))]
+    [DbContext(typeof(CategoryContext))]
     partial class MovieContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
