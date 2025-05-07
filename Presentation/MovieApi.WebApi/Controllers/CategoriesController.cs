@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieApi.Application.Features.CQRSDesignPaterns.Commands.CategoryCommand;
+using MovieApi.Application.Features.CQRSDesignPaterns.Commands.CategoryCommands;
 using MovieApi.Application.Features.CQRSDesignPaterns.Handlers.CategoryHandlers;
+using MovieApi.Application.Features.CQRSDesignPaterns.Queries.CategoryQueries;
 
 
 namespace MovieApi.WebApi.Controllers
@@ -37,6 +39,27 @@ namespace MovieApi.WebApi.Controllers
         {
             await _createCategoryCommandHandler.Handle(command);
             return Ok("Kategori ekleme başarılı");
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> RemoveCategory(int id)
+        {
+            await _removeCategoryCommandHandler.Handle(new RemoveCategoryCommand(id));
+            return Ok("Kategori silme başarılı");
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand command)
+        {
+            await _updateCategoryCommandHandler.Handle(command);
+            return Ok("Kategori güncelleme başarılı");
+        }
+
+        [HttpGet("GetCategory")]
+        public async Task<IActionResult> GetCategory(int id)
+        {
+            var value = await _getCategoryByIdQueryHandler.Handle(new GetCategoryByIdQuery(id));
+            return Ok(value);
         }
     }
 }
