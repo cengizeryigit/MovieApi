@@ -7,7 +7,7 @@ using MediatR;
 
 namespace MovieApi.Application.Features.MediatorDesignPatern.Commands.CastCommands
 {
-    internal class RemoveCastCommand:IRequest
+    public class RemoveCastCommand:IRequest
     {
         public RemoveCastCommand(int castId)
         {
