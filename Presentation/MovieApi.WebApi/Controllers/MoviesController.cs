@@ -39,7 +39,7 @@ namespace MovieApi.WebApi.Controllers
             return Ok("Film ekleme başarılı");
         }
 
-        [HttpGet]
+        [HttpDelete]
         public async Task<IActionResult> RemoveMovie(int id)
         {
             await _removeMovieCommandHandler.Handle(new RemoveMovieCommand(id));

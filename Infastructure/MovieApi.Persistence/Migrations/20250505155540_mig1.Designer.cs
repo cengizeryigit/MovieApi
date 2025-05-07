@@ -11,7 +11,7 @@ using MovieApi.Persistence.Context;
 
 namespace MovieApi.Persistence.Migrations
 {
-    [DbContext(typeof(CategoryContext))]
+    [DbContext(typeof(MovieContext))]
     [Migration("20250505155540_mig1")]
     partial class mig1
     {
