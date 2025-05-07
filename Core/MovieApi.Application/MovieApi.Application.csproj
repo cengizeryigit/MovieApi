@@ -15,4 +15,8 @@
     <ProjectReference Include="..\MovieApi.Domain\MovieApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\MediatorDesignPatern\Handlers\" />
+  </ItemGroup>
+
 </Project>
