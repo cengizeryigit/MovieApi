@@ -8,7 +8,7 @@ using MovieApi.Application.Features.MediatorDesignPatern.Results.CastResults;
 
 namespace MovieApi.Application.Features.MediatorDesignPatern.Queries.CastQueries
 {
-    internal class GetCastQuery:IRequest<List<GetCastQueryResult>>
+    public class GetCastQuery:IRequest<List<GetCastQueryResult>>
     {
     }
 }
