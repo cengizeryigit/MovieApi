@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.OpenApi.Models;
 using MovieApi.Application.Features.CQRSDesignPaterns.Handlers.CategoryHandlers;
 using MovieApi.Application.Features.CQRSDesignPaterns.Handlers.MovieHandlers;
@@ -20,6 +21,8 @@ builder.Services.AddScoped<GetMovieByIdQueryHandler>();
 builder.Services.AddScoped<CreateMovieCommandHandler>();
 builder.Services.AddScoped<UpdateMovieCommandHandler>();
 builder.Services.AddScoped<RemoveMovieCommandHandler>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 
 builder.Services.AddControllers();
